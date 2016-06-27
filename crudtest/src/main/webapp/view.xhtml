@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title><ui:insert name="title">Default title</ui:insert></title>
+</h:head>
+
+<h:body>
+<h:form>
+<h:dataTable border="0" value="#{userHandler.detail}" var="a">
+<h:column>
+<f:facet name="header">ID</f:facet>
+<h:outputText value="#{a.id}"/>
+</h:column>
+<h:column>
+<f:facet name="header">NAME</f:facet>
+#{a.name}
+</h:column>
+
+<h:column>
+<f:facet name="header">Email</f:facet>
+#{a.email}
+</h:column>
+<h:column>
+<f:facet name="header">sex</f:facet>
+#{a.sex}
+</h:column>
+
+<h:column>
+<h:commandButton value="delete" action="#{userHandler.delete(a.name)}"/>
+</h:column>
+</h:dataTable>
+</h:form>
+</h:body>
+</html>
